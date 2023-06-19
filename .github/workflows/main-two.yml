@@ -1,5 +1,6 @@
 name: Workflow2 #Название workflow
 on:
+  workflow_dispatch:
   schedule:
   - cron: '18 15 * * 1'
 
