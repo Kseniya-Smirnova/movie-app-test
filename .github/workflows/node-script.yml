@@ -29,16 +29,11 @@ jobs:
 #           body: Credit new contributors by updating MESSAGES
 #           branch: update-messages
 #         if: env.GIT_DIFF
-  adding_text:
-    name: Adding text
-    runs-on: ubuntu-latest
-    needs: set-up
-    steps:
       - name: Get changed files in the docs folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v36
-        with:
-          files: src/*.{js,txt}  # Alternatively using: `docs/**` or `docs`
+#         with:
+#           files: src/*.{js,txt}  # Alternatively using: `docs/**` or `docs`
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
