@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: npm install
       - name: script run
         run: node ./run-script.js
       - name: Check code differences
