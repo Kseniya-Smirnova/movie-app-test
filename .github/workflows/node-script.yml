@@ -28,4 +28,4 @@ jobs:
           title: Update MESSAGES
           body: Credit new contributors by updating MESSAGES
           branch: update-messages
-        if: env.GIT_DIFF
+#         if: env.GIT_DIFF
