@@ -20,7 +20,7 @@ jobs:
       - name: Check code differences
         uses: technote-space/get-diff-action@v6
         with: 
-          PATTERNS: 'src/**'
+          PATTERNS: src/**
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
