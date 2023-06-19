@@ -23,7 +23,7 @@ jobs:
         uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
-            'src/**'
+            src/**
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
