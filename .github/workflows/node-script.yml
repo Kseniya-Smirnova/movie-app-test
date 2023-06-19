@@ -18,4 +18,10 @@ jobs:
           node-version: 18
       - name: script run
         run: node ./run-script.js
-          
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: update messages
+          title: Update MESSAGES
+          body: Credit new contributors by updating MESSAGES
+          branch: update-messages
