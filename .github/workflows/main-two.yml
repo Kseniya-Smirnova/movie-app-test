@@ -1,7 +1,7 @@
 name: Workflow2 #Название workflow
 on:
   schedule:
-  - cron: '13 15 * * 1'
+  - cron: '18 15 * * 1'
 
 jobs: #Начало секции джобов
 
