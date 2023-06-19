@@ -17,6 +17,11 @@ jobs:
           node-version: 18
       - name: script run
         run: node ./run-script.js
+      - name: git commit
+        run: |
+          git add src/message.txt
+          git commit -m "new commit"
+#           git push origin master
 #       - name: Check code differences
 #         uses: technote-space/get-diff-action@v6
 #         with: 
