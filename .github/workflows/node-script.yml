@@ -29,6 +29,11 @@ jobs:
 #           body: Credit new contributors by updating MESSAGES
 #           branch: update-messages
 #         if: env.GIT_DIFF
+  adding_text:
+    name: Adding text
+    runs-on: ubuntu-latest
+    needs: set-up
+    steps:
       - name: Get changed files in the docs folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v36
