@@ -17,15 +17,27 @@ jobs:
           node-version: 18
       - name: script run
         run: node ./run-script.js
-      - name: Check code differences
-        uses: technote-space/get-diff-action@v6
-        with: 
-          PATTERNS: src/**
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+#       - name: Check code differences
+#         uses: technote-space/get-diff-action@v6
+#         with: 
+#           PATTERNS: src/**
+#       - name: Create Pull Request
+#         uses: peter-evans/create-pull-request@v5
+#         with:
+#           commit-message: update messages
+#           title: Update MESSAGES
+#           body: Credit new contributors by updating MESSAGES
+#           branch: update-messages
+#         if: env.GIT_DIFF
+      - name: Get changed files in the docs folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v36
         with:
-          commit-message: update messages
-          title: Update MESSAGES
-          body: Credit new contributors by updating MESSAGES
-          branch: update-messages
-        if: env.GIT_DIFF
+          files: src/*.{js,txt}  # Alternatively using: `docs/**` or `docs`
+
+      - name: Run step if any file(s) in the docs folder change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          echo "One or more files in the docs folder has changed."
+          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+      
