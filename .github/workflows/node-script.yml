@@ -26,7 +26,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          needs: Check code differences
           commit-message: update messages
           title: Update MESSAGES
           body: Credit new contributors by updating MESSAGES
