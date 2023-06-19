@@ -21,6 +21,9 @@ jobs:
         run: node ./run-script.js
       - name: Check code differences
         uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            +(src)/**
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -28,4 +31,4 @@ jobs:
           title: Update MESSAGES
           body: Credit new contributors by updating MESSAGES
           branch: update-messages
-#         if: env.GIT_DIFF
+        if: env.GIT_DIFF
