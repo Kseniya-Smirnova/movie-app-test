@@ -2,7 +2,7 @@ name: Workflow2 #Название workflow
 on:
   workflow_dispatch:
   schedule:
-  - cron: '18 15 * * 1'
+  - cron: '28 13 * * 1'
 
 jobs: #Начало секции джобов
 
