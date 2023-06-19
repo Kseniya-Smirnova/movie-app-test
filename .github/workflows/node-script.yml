@@ -1,5 +1,4 @@
 name: Message updating
-
 on: workflow_dispatch
     # schedule:
     # Runs "At 11:00 on every day-of-week from Monday through Friday"
@@ -16,14 +15,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-#       - run: npm install
       - name: script run
         run: node ./run-script.js
       - name: Check code differences
         uses: technote-space/get-diff-action@v6
-        with:
-          PATTERNS: |
-            src/**
+        with: 
+          PATTERNS: 'src/**'
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
