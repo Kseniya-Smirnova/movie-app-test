@@ -46,4 +46,11 @@ jobs:
         run: |
           echo "One or more files in the docs folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
-      
+      # This step will evaluate the repo status and report the change
+      - name: Check if there are changes
+        id: changes
+        uses: UnicornGlobal/has-changes-action@v1.0.11
+      # You can now access a variable indicating if there have been changes
+      - name: Process changes
+        if: steps.changes.outputs.changed == 1
+        run: echo "Changes exist"
