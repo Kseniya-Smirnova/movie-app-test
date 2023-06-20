@@ -35,30 +35,31 @@ jobs:
         run: |
           echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
         # Outputs: "Changed files: new.txt test_directory/new.txt
-#       - name: Create Pull Request
-#         uses: peter-evans/create-pull-request@v5
-#         with:
-#           commit-message: update messages
-#           title: Update MESSAGES
-#           body: Credit new contributors by updating MESSAGES
-#           branch: update-messages
-      - name: Get changed files in the docs folder
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v36
+      - name: Create Pull Request
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        uses: peter-evans/create-pull-request@v5
         with:
-          files: |
-            **.txt
-            src
-      - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: |
-          echo "One or more files in the docs folder has changed."
-          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
-      # This step will evaluate the repo status and report the change
-      - name: Check if there are changes
-        id: changes
-        uses: UnicornGlobal/has-changes-action@v1.0.11
-      # You can now access a variable indicating if there have been changes
-      - name: Process changes
-        if: steps.changes.outputs.changed == 1
-        run: echo "Changes exist"
+          commit-message: update messages
+          title: Update MESSAGES
+          body: Credit new contributors by updating MESSAGES
+          branch: update-messages
+#       - name: Get changed files in the docs folder
+#         id: changed-files-specific
+#         uses: tj-actions/changed-files@v36
+#         with:
+#           files: |
+#             **.txt
+#             src
+#       - name: Run step if any file(s) in the docs folder change
+#         if: steps.changed-files-specific.outputs.any_changed == 'true'
+#         run: |
+#           echo "One or more files in the docs folder has changed."
+#           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+#       # This step will evaluate the repo status and report the change
+#       - name: Check if there are changes
+#         id: changes
+#         uses: UnicornGlobal/has-changes-action@v1.0.11
+#       # You can now access a variable indicating if there have been changes
+#       - name: Process changes
+#         if: steps.changes.outputs.changed == 1
+#         run: echo "Changes exist"
