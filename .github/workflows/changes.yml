@@ -1,0 +1,35 @@
+name: Changes #Название workflow
+on: workflow_dispatch #Триггер, который будет вызывать workflow
+
+jobs: #Начало секции джобов
+  print_hello: #Название джоба
+    runs-on: ubuntu-latest #Среда выполнения джоба
+    
+    steps: #Начало секции шагов
+      - uses: actions/checkout@v2
+
+      - name: Change text file
+        run: |
+          echo "Modified" > new.txt
+
+      - name: Change file in directory
+        run: |
+          echo "Changed" > test_directory/new.txt
+
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v15
+        id: verify-changed-files
+        with:
+          files: |
+             *.txt
+             test_directory
+             action.yml
+             **/*.py
+             **/*.jpeg
+             !*.sql
+
+      - name: Run step only when any of the above files change.
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        run: |
+          echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
+        # Outputs: "Changed files: new.txt test_directory/new.txt"
