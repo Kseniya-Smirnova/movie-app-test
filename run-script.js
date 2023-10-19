@@ -1,7 +1,8 @@
 const fs = require('fs');
+const { exec } = require('child_process');
 
-fs.appendFileSync('src/pages/test.txt', 'data to append v2');
-
-let fileContent = fs.readFileSync('src/pages/test.txt', 'utf8');
-console.log(fileContent);
-
+exec(
+    `
+       openapi-generator-cli generate -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -g typescript-axios -o ./test
+    `
+);
