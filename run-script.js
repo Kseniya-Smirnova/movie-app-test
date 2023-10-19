@@ -3,11 +3,11 @@ const { exec } = require('child_process');
 
 function readDir(dirPath) {
     console.log(dirPath, process.cwd());
-    fs.readdir(`${dirPath}`, (err, files) => {
-        files.forEach(file => {
-            console.log('Files: ', file);
-        });
-    });
+    // fs.readdir(`${dirPath}`, (err, files) => {
+    //     files.forEach(file => {
+    //         console.log('Files: ', file);
+    //     });
+    // });
 }
 
 function run() {
