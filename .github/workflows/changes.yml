@@ -9,7 +9,7 @@ jobs: #Начало секции джобов
       - uses: actions/checkout@v3
 
       - name: Install dependency
-        run: npm ci
+        run: npm i
 
       - name: Fun update types
         run: openapi-generator-cli generate -g ruby -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -o /test_directory
