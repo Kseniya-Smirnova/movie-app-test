@@ -8,28 +8,30 @@ jobs: #Начало секции джобов
     steps: #Начало секции шагов
       - uses: actions/checkout@v3
 
-      - name: Change text file
-        run: |
-          echo "Modified" > new.txt
+      - name: Install dependency
+        run: npm ci
+
+      - name: Fun update types
+        run: openapi-generator-cli generate -g ruby -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -o /test_directory
 
 #       - name: Change file in directory
 #         run: |
 #           echo "Changed" > test_directory/new.txt
 
-      - name: Verify Changed files
-        uses: tj-actions/verify-changed-files@v15
-        id: verify-changed-files
-        with:
-          files: |
-             *.txt
-             test_directory
-             action.yml
-             **/*.py
-             **/*.jpeg
-             !*.sql
+      # - name: Verify Changed files
+      #   uses: tj-actions/verify-changed-files@v15
+      #   id: verify-changed-files
+      #   with:
+      #     files: |
+      #        *.txt
+      #        test_directory
+      #        action.yml
+      #        **/*.py
+      #        **/*.jpeg
+      #        !*.sql
 
-      - name: Run step only when any of the above files change.
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-        run: |
-          echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
-        # Outputs: "Changed files: new.txt test_directory/new.txt"
+      # - name: Run step only when any of the above files change.
+      #   if: steps.verify-changed-files.outputs.files_changed == 'true'
+      #   run: |
+      #     echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
+      #   # Outputs: "Changed files: new.txt test_directory/new.txt"
