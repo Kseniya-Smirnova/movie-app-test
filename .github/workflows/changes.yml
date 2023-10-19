@@ -22,7 +22,7 @@ jobs: #Начало секции джобов
         run: npm i
 
       - name: Fun update types
-        run: node_modules/.bin/openapi-generator-cli generate -g ruby -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -o /test_directory
+        run: node run-script.js
 
 #       - name: Change file in directory
 #         run: |
