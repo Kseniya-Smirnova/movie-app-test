@@ -7,6 +7,11 @@ jobs: #Начало секции джобов
     
     steps: #Начало секции шагов
       - uses: actions/checkout@v3
+      
+      - name: Node setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Node setup
         uses: actions/setup-node@v3
