@@ -13,7 +13,7 @@ function readDir(dirPath) {
 function run() {
     exec(
         `
-       openapi-generator-cli generate -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -g typescript-axios -o ./test
+       openapi-generator-cli generate -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -g typescript-axios -o ./test-folder
     `, {
             cwd: process.cwd()
         }
