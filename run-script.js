@@ -18,7 +18,6 @@ function run() {
             cwd: process.cwd()
         }
     );
-    readDir('./test');
 }
 
 run();
