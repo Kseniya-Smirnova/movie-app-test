@@ -24,6 +24,14 @@ jobs: #Начало секции джобов
       - name: Fun update types
         run: node run-script.js
 
+      - name: Create Pull Request
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: update messages
+          title: Update MESSAGES
+          body: Credit new contributors by updating MESSAGES
+          branch: update-messages
 #       - name: Change file in directory
 #         run: |
 #           echo "Changed" > test_directory/new.txt
