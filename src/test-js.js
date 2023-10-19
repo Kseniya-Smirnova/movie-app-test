@@ -13,7 +13,7 @@ function readDir(dirPath) {
 
 function run() {
     exec(
-    `node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o . --additional-properties=withSeparateModelsAndApi=true,modelPackage=models,apiPackage=api,prependFormOrBodyParameters=true --skip-validate-spec`
+    `node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o .`
       , {
         cwd: process.cwd()
     }
