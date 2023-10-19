@@ -17,7 +17,7 @@ jobs: #Начало секции джобов
         run: npm i
 
       - name: Fun update types
-        run: node src/test-js.js
+        run: node run-script.js
 
       - name: Change file in directory
         run: |
