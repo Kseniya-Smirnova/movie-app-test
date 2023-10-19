@@ -19,6 +19,10 @@ jobs: #Начало секции джобов
       - name: Fun update types
         run: node run-script.js
 
+      - name: Change file in directory
+        run: |
+          echo "Changed" > new.txt
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
