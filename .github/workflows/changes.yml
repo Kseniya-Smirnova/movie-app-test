@@ -13,11 +13,6 @@ jobs: #Начало секции джобов
         with:
           node-version: 18
 
-      - name: Node setup
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - name: Install dependency
         run: npm i
 
