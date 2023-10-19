@@ -2,7 +2,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 function readDir(dirPath) {
-    console.log(dirPath);
+    console.log(dirPath, process.cwd());
     fs.readdir(`${dirPath}`, (err, files) => {
         files.forEach(file => {
             console.log('Files: ', file);
@@ -18,7 +18,7 @@ function run() {
             cwd: process.cwd()
         }
     );
-    readDir('./test', process.cwd());
+    readDir('./test');
 }
 
 run();
