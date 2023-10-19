@@ -14,7 +14,7 @@ function readDir(dirPath) {
 function run() {
     exec(
     `
-       node_modules/.bin/openapi-generator-cli generate -i https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -g typescript-axios -o ./test
+       node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o ./test
     `, {
         cwd: process.cwd()
     }
