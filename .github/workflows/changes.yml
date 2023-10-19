@@ -25,7 +25,7 @@ jobs: #Начало секции джобов
           commit-message: update messages
           title: Update MESSAGES
           body: Credit new contributors by updating MESSAGES
-          branch: update-messages2
+          branch: update-messages
 #       - name: Change file in directory
 #         run: |
 #           echo "Changed" > test_directory/new.txt
