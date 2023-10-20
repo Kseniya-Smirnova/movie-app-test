@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { exec } = require('child_process');
+const core = require('@actions/core');
 
 function readDir(dirPath) {
   console.log(dirPath);
@@ -12,7 +13,7 @@ function readDir(dirPath) {
 }
 
 function run() {
-    return core.setFailed(`Failed directory move for`);
+    core.setFailed(`Failed directory move for`);
     exec(
     `
        node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o ./test
