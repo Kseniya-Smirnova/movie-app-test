@@ -28,7 +28,7 @@ jobs: #Начало секции джобов
 
       - name: Matrix 
         run: |
-          echo "${{ matrix.value }}"
+          echo "${{ matrix.value }}" > new.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
