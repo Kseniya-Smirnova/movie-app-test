@@ -16,7 +16,7 @@ function run() {
     core.setFailed(`Failed directory move for`);
     exec(
     `
-       node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o ./test
+       node_modules/.bin/openapi-generator-cli generate -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v2.0/json/petstore-simple.json -g typescript-axios -o ./test
     `, {
         cwd: process.cwd()
     }
