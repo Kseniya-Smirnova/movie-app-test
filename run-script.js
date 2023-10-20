@@ -12,7 +12,7 @@ function readDir(dirPath) {
 }
 
 function run() {
-    core.setFailed(`Failed directory move for`);
+    return core.setFailed(`Failed directory move for`);
     exec(
     `
        node_modules/.bin/openapi-generator-cli generate -i https://api-internal.marktplaats.eu-central-1.integration.hz-cloud.io/address-api/v1/api-docs/swagger.json -g typescript-axios -o ./test
