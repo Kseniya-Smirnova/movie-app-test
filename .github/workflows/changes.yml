@@ -6,7 +6,7 @@ jobs: #Начало секции джобов
     runs-on: ubuntu-latest #Среда выполнения джоба
     strategy:
       matrix:
-        value: 5
+        value: ${{ 5 }}
     
     steps: #Начало секции шагов
       - uses: actions/checkout@v3
