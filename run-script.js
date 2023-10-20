@@ -13,8 +13,8 @@ function readDir(dirPath) {
 }
 
 function run() {
-    core.setFailed(`Failed directory move for 1`);
-    core.setFailed(`Failed directory move for 2`);
+    // core.setFailed(`Failed directory move for 1`);
+    // core.setFailed(`Failed directory move for 2`);
     exec(
     `
        node_modules/.bin/openapi-generator-cli generate -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v2.0/json/petstore-simple.json -g typescript-axios -o ./test
