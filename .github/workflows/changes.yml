@@ -4,6 +4,9 @@ on: workflow_dispatch #Триггер, который будет вызыват�
 jobs: #Начало секции джобов
   print_hello: #Название джоба
     runs-on: ubuntu-latest #Среда выполнения джоба
+    strategy:
+      matrix:
+        value: 5
     
     steps: #Начало секции шагов
       - uses: actions/checkout@v3
@@ -22,6 +25,10 @@ jobs: #Начало секции джобов
       - name: Change file in directory
         run: |
           echo "Changed" > new.txt
+
+      - name: Matrix 
+        run: |
+          echo "${{ matrix.value }}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
