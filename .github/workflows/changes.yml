@@ -36,7 +36,7 @@ jobs: #Начало секции джобов
           commit-message: update messages
           title: Update MESSAGES
           body: Credit new contributors by updating MESSAGES
-          branch: update-messages
+          branch: update-messages"${{ matrix.versions }}"
 #       - name: Change file in directory
 #         run: |
 #           echo "Changed" > test_directory/new.txt
