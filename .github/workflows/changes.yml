@@ -19,8 +19,8 @@ jobs: #Начало секции джобов
       - name: Install dependency
         run: npm i
 
-      - name: Fun update types
-        run: node run-script.js
+      # - name: Fun update types
+      #   run: node run-script.js
 
       - name: Change file in directory
         run: |
